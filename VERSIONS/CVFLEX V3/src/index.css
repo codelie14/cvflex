@@ -1,0 +1,155 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&family=Open+Sans:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 13% 9%; /* ardoise-900 */
+    --foreground: 220 9% 95%; /* ardoise-50 */
+
+    --card: 220 13% 11%; /* ardoise-800 un peu plus clair */
+    --card-foreground: 220 9% 95%; /* ardoise-50 */
+
+    --popover: 220 13% 7%; /* encore plus sombre pour se démarquer */
+    --popover-foreground: 220 9% 95%;
+
+    --primary: 262 83% 58%; /* violet-500 */
+    --primary-foreground: 220 9% 95%; /* ardoise-50 (pour contraste sur violet) */
+
+    --secondary: 220 13% 25%; /* ardoise-700 */
+    --secondary-foreground: 220 9% 95%;
+
+    --muted: 220 13% 25%; /* ardoise-700 */
+    --muted-foreground: 220 9% 60%; /* ardoise-400 */
+
+    --accent: 220 13% 20%; /* ardoise-700/800 pour hover etc */
+    --accent-foreground: 220 9% 95%;
+
+    --destructive: 0 72% 51%; /* rouge-600 */
+    --destructive-foreground: 220 9% 95%;
+
+    --border: 220 13% 20%; /* ardoise-700/800 */
+    --input: 220 13% 17%; /* ardoise-800 plus foncé pour les champs */
+    --ring: 262 83% 58%; /* violet-500 */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Les variables sont déjà définies pour le mode sombre par défaut */
+  }
+  
+  .light {
+    --background: 0 0% 100%; /* blanc */
+    --foreground: 220 13% 9%; /* ardoise-900 */
+
+    --card: 0 0% 98%; /* gris-50 tres clair */
+    --card-foreground: 220 13% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 9%;
+
+    --primary: 262 73% 53%; /* violet-600 un peu plus foncé pour contraste sur clair */
+    --primary-foreground: 0 0% 100%; /* blanc */
+
+    --secondary: 0 0% 96%; /* gris-100 */
+    --secondary-foreground: 220 13% 9%;
+
+    --muted: 0 0% 96%; /* gris-100 */
+    --muted-foreground: 220 13% 45%; /* ardoise-600 */
+
+    --accent: 0 0% 93%; /* gris-200 */
+    --accent-foreground: 220 13% 9%;
+
+    --destructive: 0 72% 51%; /* rouge-600 */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 85%; /* ardoise-300 */
+    --input: 220 13% 91%; /* ardoise-200 */
+    --ring: 262 73% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.font-poppins { font-family: 'Poppins', sans-serif; }
+.font-roboto { font-family: 'Roboto', sans-serif; }
+.font-opensans { font-family: 'Open Sans', sans-serif; }
+.font-lato { font-family: 'Lato', sans-serif; }
+.font-montserrat { font-family: 'Montserrat', sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+}
+
+.glass-effect {
+  @apply bg-card/60 backdrop-blur-md border border-border/50;
+}
+
+.light .glass-effect {
+   @apply bg-card/80 backdrop-blur-md border border-border/70;
+}
+
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.cv-preview {
+  transform-origin: top left;
+  transform: scale(0.6);
+  width: 166.67%;
+  height: 166.67%;
+}
+
+@media print {
+  .cv-preview {
+    transform: none;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.pattern-dots {
+  background-image: radial-gradient(circle, hsl(var(--primary) / 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.light .pattern-dots {
+  background-image: radial-gradient(circle, hsl(var(--primary) / 0.1) 1px, transparent 1px);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(240 83% 68%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
